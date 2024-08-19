@@ -1,0 +1,45 @@
+﻿<Window x:Class="ClanChat.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClanChat.Desktop"
+        mc:Ignorable="d"
+        Title="Clan Chat Client" Height="450" Width="800">
+     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Имя"/>
+                <TextBox x:Name="UsernameTextBox" Width="100"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Пароль"/>
+                <PasswordBox x:Name="PasswordBox" Width="100"/>
+            </StackPanel>
+
+            <Button Content="Авторизоваться" Width="100" Margin="5" Click="LoginButton_Click"/>
+
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Наименование клана"/>
+                <TextBox x:Name="ClanTextBox" Width="100"/>
+            </StackPanel>
+
+            <Button Content="Подключиться" Width="100" Margin="5" Click="JoinClanButton_Click"/>
+        </StackPanel>
+
+        <TextBlock Text="{Binding ClanNameText}" Margin="10,54,-10,266" Grid.RowSpan="2" />
+        <ListBox x:Name="ChatListBox" Grid.Row="1" Margin="10"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
+            <TextBox x:Name="MessageTextBox" Width="600" Margin="5"/>
+            <Button Content="Отправить" Width="100" Margin="5" Click="SendButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
